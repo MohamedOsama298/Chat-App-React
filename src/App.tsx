@@ -1,24 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import socket from './socket';
+import { httpInstance } from './network/baseUrl';
+import Chat from './pages/Chat';
 function App() {
+
+  function onConnect() {
+    console.log("connected");
+  }
+
+  function onDisconnect() {
+    console.log("disconnnected");
+  }
+  useEffect(() => {
+    socket.on("connect", onConnect);
+    socket.on("disconnect", onDisconnect);
+
+    httpInstance.post("/messages",{
+      message: {
+        id:"hello",
+        title:"Hello",
+        body:"A Body"
+      }
+    })
+
+    return () => {
+      socket.off("connect", onConnect);
+      socket.off("disconnect", onDisconnect);
+    };
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Chat/>
     </div>
   );
 }
