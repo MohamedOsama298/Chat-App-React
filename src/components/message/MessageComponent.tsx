@@ -4,13 +4,13 @@ import { Message } from "../../types/message";
 
 
 
-const  MessageComponent:React.FC<Message> = ({title,body}) => {
+const  MessageComponent:React.FC<Message> = ({body}) => {
   useEffect(()=>{
-    console.log(title,body);
+    console.log(body);
     
   },[])
   return (
-        <Card title={title} bordered={false} style={{ width: 300 }}>
+        <Card bordered={false} style={{ width: 300 }}>
           <p>{body}</p>
         </Card>
   );

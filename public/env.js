@@ -1,7 +1,7 @@
 window.env = {
   "ALLUSERSPROFILE": "C:\\ProgramData",
   "APPDATA": "C:\\Users\\Mohamed Osama\\AppData\\Roaming",
-  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\crashpad_12536_XCIGBVWOVJUFOFHL",
+  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\crashpad_17644_UYKERSDYEPSIAIPY",
   "COLOR": "1",
   "COLORTERM": "truecolor",
   "CommonProgramFiles": "C:\\Program Files\\Common Files",
@@ -71,7 +71,7 @@ window.env = {
   "SystemRoot": "C:\\Windows",
   "TEMP": "C:\\Users\\MOHAME~1\\AppData\\Local\\Temp",
   "TERM_PROGRAM": "vscode",
-  "TERM_PROGRAM_VERSION": "1.88.1",
+  "TERM_PROGRAM_VERSION": "1.90.2",
   "TMP": "C:\\Users\\MOHAME~1\\AppData\\Local\\Temp",
   "USERDOMAIN": "DESKTOP-PBK7UO6",
   "USERDOMAIN_ROAMINGPROFILE": "DESKTOP-PBK7UO6",
