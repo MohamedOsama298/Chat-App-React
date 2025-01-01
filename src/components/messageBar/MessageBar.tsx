@@ -1,13 +1,25 @@
 import { Button, Input, Space } from "antd";
 import { useState } from "react";
-import { authorizedHttpInstance, httpInstance } from "../../network/baseUrl";
+import { authorizedHttpInstance } from "../../network/baseUrl";
+import { useQueryClient } from "@tanstack/react-query";
 
-export default function MessageBar() {
+export default function MessageBar({ chatID }: { chatID: string }) {
   const [message, setMessage] = useState<string>("");
+  const queryClient = useQueryClient();
+  console.log(chatID);
+
   function onSend() {
-    authorizedHttpInstance.post("/messages", {
-      message
-    });
+    authorizedHttpInstance
+      .post("/messages", {
+        message,
+        chatID,
+      })
+      .then(async () => {
+        await queryClient.invalidateQueries({ queryKey: ["chats"] });
+        await queryClient.invalidateQueries({
+          queryKey: [`chatMessages-${chatID}`],
+        });
+      });
     setMessage("");
   }
   return (

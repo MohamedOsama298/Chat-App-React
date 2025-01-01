@@ -1,16 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Card} from "antd";
-import { Message } from "../../types/message";
+
+interface MessageCard {
+  body :string;
+  sender :string;
+}
 
 
-
-const  MessageComponent:React.FC<Message> = ({body}) => {
-  useEffect(()=>{
-    console.log(body);
-    
-  },[])
+const  MessageComponent:React.FC<MessageCard> = ({body,sender}) => {
   return (
-        <Card bordered={false} style={{ width: 300 }}>
+        <Card title={sender} bordered={false} style={{ width: 300 }}>
           <p>{body}</p>
         </Card>
   );

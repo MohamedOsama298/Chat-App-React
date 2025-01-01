@@ -1,4 +1,8 @@
 export type Message = {
-    id: string;
+    _id: string;
     body: string;
+    sender: {
+        userName :string
+    };
+    createdAt: string;
 }  
